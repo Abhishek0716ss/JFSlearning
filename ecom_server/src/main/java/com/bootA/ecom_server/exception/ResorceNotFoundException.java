@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus (HttpStatus.NOT_FOUND)
 public class ResorceNotFoundException extends RuntimeException{
-    public ResorceNotFoundException(String msg) {super(); }
+    public ResorceNotFoundException(String msg)
+     {super(msg); }
     
     
     

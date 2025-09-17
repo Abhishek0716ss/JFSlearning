@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bootA.ecom_server.exception.ResorceNotFoundException;
 // import com.bootA.ecom_server.exception.ResorceNotFoundException;
 import com.bootA.ecom_server.models.Product;
 import com.bootA.ecom_server.repos.ProductRepo;
@@ -44,7 +45,7 @@ public class ProductsController {
 		Optional<Product> findproduct =productRepo.findById(id);
 		if(findproduct.isEmpty()) {
 			Log.error("failed to delete product"+id);
-		
+			throw new ResorceNotFoundException("product not found");
 		}
 		productRepo.deleteById(id);
 		Log.error("deleting the product by id"+id);
@@ -67,5 +68,6 @@ public class ProductsController {
 	    return productRepo.save(findproduct);
 	}
 
-	
+	 
+
 }
