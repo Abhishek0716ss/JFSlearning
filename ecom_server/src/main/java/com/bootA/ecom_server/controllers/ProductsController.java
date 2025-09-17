@@ -17,11 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bootA.ecom_server.models.Product;
 import com.bootA.ecom_server.repos.ProductRepo;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/products")
 public class ProductsController {
 	private static final Logger Log=LoggerFactory.getLogger(ProductsController.class);
 	@Autowired ProductRepo productRepo;
+	
+	
+	@Tag(name="Get All Products")
 	@GetMapping("/all")
 	public List<Product> getAllProducts(){
 		Log.info("Fetching Products");
