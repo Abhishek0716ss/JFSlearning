@@ -18,3 +18,4 @@ EXPOSE 8080
 
 # Run the app on the port Render assigns
 ENTRYPOINT ["java","-jar","app.jar","--server.port=${PORT}"]
+ 
